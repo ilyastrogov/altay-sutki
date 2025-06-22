@@ -9,13 +9,13 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - usea: actions/checkout@v2
+      - uses: actions/checkout@v2
       - run: set -eu
       - run: mkdir "$HOME/.ssh"
       - run: echo "${{ secrets.key0 }}" > "$HOME/.ssh/key0"      
       - run: chmod 600 "$HOME/.ssh/key0"
       - run: npm run start
-      - run: rsync -e "ssh -p 20022 -i $HOME/.ssh/key0 -o StrictHostKeyChecking=on" --archive --commpress --delete . timeweb.cloud/my/var/www/altay-sutki/public_html
+      - run: rsync -e "ssh -p 20022 -i $HOME/.ssh/key0 -o StrictHostKeyChecking=on" --archive --commpress --delete . hosting.timeweb.ru/fileman/home/v/vsyoo/Rent/public_html
 
       #/home/u/user/имя_сайта/public_html/
 
