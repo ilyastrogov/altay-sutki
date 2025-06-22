@@ -7,11 +7,11 @@ const sqlite3 = require('sqlite3');
 // const { AsyncDatabase } = require('promised-sqlite3');
 
 // файл для базы данных дел
-// const DB_FILE = 'C:/ProgSqLite/clients1.db';
+// const DB_FILE = './todo-server/clients1.db';
 // const DB_FILE = './db.json';
 // import { DatabaseSync } from 'node:sqlite';
-// const DB = new DatabaseSync('C:/ProgSqLite/clients1.db');
-// const DB = new sqlite3.Database('C:/ProgSqLite/clients1.db');
+// const DB = new DatabaseSync('./todo-server/clients1.db');
+// const DB = new sqlite3.Database('./todo-server/clients1.db');
 // const DB_FILE = getBase();
 // префикс URI для всех методов приложения
 const URI_PREFIX = '/api/todos';
@@ -81,7 +81,7 @@ function makeTodoItemFromData(data) {
 function getBase() {
 
   return new Promise((resolve, reject) => {
-    const DB = new sqlite3.Database('C:/ProgSqLite/clients1.db');
+    const DB = new sqlite3.Database('./todo-server/clients1.db');
     DB.all('SELECT * FROM clientele', (err, rows) => {  
       
       if (err) {  
@@ -107,7 +107,7 @@ function setInBase(data) {
   const date = JSON.stringify(data.date);
   const id = (Date.now() % 1000000).toString();
   return new Promise((resolve, reject) => {
-    const DB = new sqlite3.Database('C:/ProgSqLite/clients1.db');
+    const DB = new sqlite3.Database('./todo-server/clients1.db');
     DB.run(insertQuery, [owner, name, tel, date, id], function (err) {  
         if (err) {  
           reject(err.message);  
@@ -123,7 +123,7 @@ function setInBase(data) {
 
 
 function getBaseFilter(col, field) {
-  const DB = new sqlite3.Database('C:/ProgSqLite/clients1.db');
+  const DB = new sqlite3.Database('./todo-server/clients1.db');
   return new Promise((resolve, reject) => {
     DB.each(`SELECT * FROM clientele WHERE ${col} = ?`, `${field}`,  function(err, row) {  
       if (err) {  
@@ -147,7 +147,7 @@ function pachDataBase(searchId, data) {
   if (data.date.length !== 0) {
     const sql = 'UPDATE clientele SET owner = ?, name = ?, tel = ?, date = ? WHERE id = ?'
     return new Promise((resolve, reject) => {
-      const DB = new sqlite3.Database('C:/ProgSqLite/clients1.db');
+      const DB = new sqlite3.Database('./todo-server/clients1.db');
       DB.run(sql, [owner, name, tel, date, id], function(err) {  
         if (err) {  
           reject(err.message);  
@@ -166,7 +166,7 @@ function deleteDataOfBase(id) {
   const sql = `DELETE FROM clientele WHERE id = ?`;  
 
   const value = id;
-  const DB = new sqlite3.Database('C:/ProgSqLite/clients1.db');
+  const DB = new sqlite3.Database('./todo-server/clients1.db');
   DB.run(sql, value, function(err) {  
     if (err) {  
       console.log(err.message);  
@@ -316,7 +316,7 @@ createServer(async (req, res) => {
           // let blin = getTodoList(queryParams);
           // 
           let allDB = await getBase();
-          console.log('rows', allDB);
+          console.log('rows git', allDB);
           let filterDB = getTodoList(allDB, queryParams)
           return filterDB;
         };
