@@ -1,0 +1,282 @@
+/* @import "compass/css3";
+@import 'https://fonts.googleapis.com/css?family=Kreon:300,700'; */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, 'Segoe UI';
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+/* body {
+    background: url(../foto/) center center no-repeat;
+    background-size: contain;
+    background-color: aqua;
+} */
+
+.container {
+    min-height: 1500px;
+    /* background: url(../foto/FotoCity1.webp) center center no-repeat;
+    background-size: cover; */
+    display: flex;
+    flex-direction: column;
+}
+
+.shell__nav {
+    max-height: 40px;   
+}
+
+.nav {
+    width: 100%;
+    /* column-gap: 24px; */
+    overflow-x: scroll;
+}
+
+.nav::-webkit-scrollbar {
+    display: none;
+}
+
+.nav-link {
+    white-space: nowrap;
+}
+
+.form__title {
+    color: #fff;
+}
+
+.input-g {
+    border-radius: 25px;
+    
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: 30px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 80px rgba(0, 0, 0, 0.2);
+}
+
+/* Calendar */
+
+.calendar {
+    position: relative;
+    height: 370px;
+    border-radius: 25px;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: 30px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 80px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    margin-bottom: 25px;
+}
+
+.calendar__header {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    padding: 15px 20px 25px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.calendar__btns {
+    display: flex;
+    column-gap: 35px;
+}
+
+.calendar__btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: opasity 0.1s;
+}
+
+.calendar__btn:hover {
+    opacity: 0.7;
+}
+
+#prev-btn {
+    width: 17px;
+    height: 17px;
+    border-top: 3px solid #1e08c0;
+    border-left: 3px solid #1e08c0;
+    transform: rotate(-45deg)
+    /* background: url(../foto/prevBtn.svg) center center no-repeat;  */
+}
+
+#next-btn {
+    width: 17px;
+    height: 17px;
+    border-right: 3px solid #1e08c0;
+    border-bottom: 3px solid #1e08c0;
+    transform: rotate(-45deg)
+    /* background: url(../foto/nextBtn.svg) center center no-repeat;  */
+}
+
+
+.calendar__month {
+    color: #1e08c0;
+}
+
+.calendar__day-names,
+.calendar__days {
+    display: grid;
+    font-weight: bold;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    color: #1e08c0;
+    justify-items: center;
+}
+
+.calendar__day-names span {
+    font-size: 16px;
+}
+
+.calendar__days {
+    row-gap: 5px;
+}
+
+.calendar__days span:not(.calendar__days-hidden) {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    color: #1e08c0;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 50px;
+    transition: background-color 0.3s ;
+}
+
+.calendar__days span.today {
+    background-color: #fff;
+    outline: 2px solid #1e08c0;
+    /* color: rgb(255, 192, 189); */
+    font-weight: bold;
+    border-radius: 50px;
+}
+
+.calendar__days span:not(.calendar__days-hidden):hover {
+    background-color: rgb(255, 192, 189);
+    opacity: 0.7;
+} 
+
+.big__swip__container {
+    width: 100%;
+    max-width: 600px;
+}
+
+.big__slide {
+    object-fit: cover;
+}
+
+.title__main {
+    max-width: 800px;
+    color: #fff;
+    opacity: 0.9;
+}
+
+h2 {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.input-g {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;    
+    /* color: rgba(0,255,0, 0.1); */
+}
+
+.input-group {
+    padding-bottom: 30px;
+}
+
+.input-group-append {
+    display: flex;
+    justify-content: center;
+}
+
+.input-group>.form-control, .input-group>.form-floating, .input-group>.form-select {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: 30px;
+    box-shadow: 0 0 80px rgba(0, 0, 0, 0.2);
+}
+
+.form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+            color: #1e08c0 !important;
+            opacity: 1; /* Firefox */
+}
+.form-control:-ms-input-placeholder { /* Internet Explorer 10-11 */
+            color: #1e08c0 !important;
+}
+.form-control::-ms-input-placeholder { /* Microsoft Edge */
+            color: #1e08c0 !important;
+}
+
+
+/* .name, .block {
+    text-align: center;
+} */
+  
+/* .name {
+    font-weight: 700;
+} */
+  
+.calendar__days span.bron {
+    background-color: rgb(182, 16, 227, 0.6);
+}
+  
+.active {
+    /* background-color: rgb(255, 192, 189); */
+    border: 3px solid #08ba0b;
+}
+
+.cards {
+    /* display: flex; */
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;  
+}
+
+.card {
+    max-width: 100%;
+}
+
+.card__foto {
+    height: 0px;
+    background: url(../foto/skinali-2883.jpg) center center no-repeat;
+    background-size: cover;
+}
+
+.title__card {
+    font-size: 18px;
+    color: #b458ee;
+    margin-bottom: 5px;
+}
+
+.name__surname, .teleph {
+    display: block;
+    margin-bottom: 5px;
+    color: #3ac6ee;
+}
+
+.shell__for__date {
+    display: flex;    
+    flex-wrap: wrap;
+}
+
+.card__date:not(:last-child) {
+    margin-right: 7px;
+}
+
+.card__date {
+    
+    margin-bottom: 5px;
+    color: #18e84e;  
+}
