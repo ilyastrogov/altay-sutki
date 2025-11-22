@@ -16,7 +16,7 @@
                         name="search"
                         autocomplete="on"
                         class="input-search form-control"
-                        placeholder="Введите ФИО"
+                        placeholder="Введите адрес"
                         required
                     />
                         
